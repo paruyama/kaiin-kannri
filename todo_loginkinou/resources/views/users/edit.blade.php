@@ -10,7 +10,8 @@
     </div>
 @endif
 
-<form action="{{ route('users.update', $user) }}" method="POST">
+@if ($user)
+<form action="{{ route('members.update',$users->id) }}" method="POST">
     @csrf
     @method('PUT')
     <table class="table table-bordered">
@@ -32,11 +33,15 @@
     <button type="submit" class="btn btn-primary">更新</button>
 </form>
 
-<form action="{{ route('users.destroy', $user) }}" method="POST" onsubmit="return confirm('本当に削除しますか？');">
+<form action="{{ route('members.destroy', $user->id) }}" method="POST" onsubmit="return confirm('本当に削除しますか？');">
     @csrf
     @method('DELETE')
     <button type="submit" class="btn btn-danger">削除</button>
 </form>
+
+@else
+    <p>会員情報が見つかりません。</p>
+@endif
 
 <a href="{{ route('users.index') }}" class="btn btn-secondary">会員一覧へ戻る</a>
 

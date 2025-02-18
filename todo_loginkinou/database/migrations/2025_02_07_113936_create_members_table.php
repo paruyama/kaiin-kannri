@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('members', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 15)->nullable(); // varchar(15)
-            $table->string('phone', 15)->nullable(); // varchar(15)
-            $table->string('email', 254)->nullable(); // varchar(254)
-            $table->string('password')->nullable(); // password 
+            $table->string('name')->nullable(); // NULLを許可する場合
+            $table->string('email')->unique();
+            $table->string('password')->nullable(); // NULLを許可する場合
+            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('members');
+        Schema::dropIfExists('users');
     }
 };

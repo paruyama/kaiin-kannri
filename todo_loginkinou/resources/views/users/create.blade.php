@@ -10,7 +10,7 @@
     </div>
 @endif
 
-<form action="{{ route('users.store') }}" method="POST">
+<form action="{{ route('members.store') }}" method="POST">
     @csrf
     <ul class="list-group">
         <li class="list-group-item">

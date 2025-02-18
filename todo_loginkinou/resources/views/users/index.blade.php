@@ -20,8 +20,8 @@
                 <td>{{ $user->phone }}</td>
                 <td>{{ $user->email }}</td>
                 <td>
-                    <a href="{{ route('users.edit', $user) }}" class="btn btn-warning">編集</a>
-                    <form action="{{ route('users.destroy', $user) }}" method="POST" style="display: inline;">
+                    <a href="{{ route('members.edit', $member) }}" class="btn btn-warning">編集</a>
+                    <form action="{{ route('members.destroy', $member) }}" method="POST" style="display: inline;">
                         @csrf
                         <!-- @method('DELETE')
                         <button type="submit" class="btn btn-danger">削除</button> -->
